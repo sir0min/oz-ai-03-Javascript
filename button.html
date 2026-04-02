@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" class="name-input">
+    <button>확인</button>
+
+    <script>
+        const input = document.querySelector(".name-input")
+        const button = document.querySelector("button")
+
+
+        function printInput() {
+            if (input.value.trim() === "") {
+                alert("입력 값이 비어 있습니다.")
+            };
+            
+            console.log(input.value);
+        }
+
+        button.addEventListener("click", printInput);
+
+    </script>
+</body>
+</html>

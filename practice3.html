@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="box">마우스를 올려보세요.</p>
+
+    <script>
+        // mouseover -> 글씨를 orange 색으로 변경
+        // mouseout -> 글씨를 black 색으로 변경
+
+        const box = document.querySelector("#box");
+
+        // function changeColorToOrange() {
+        //     box.style.color = "orange";
+        // };
+
+        // function changeColorToBlack() {
+        //     box.style.color = "black";
+        // };
+
+        // box.addEventListener("mouseover", changeColorToOrange);
+        // box.addEventListener("mouseout", changeColorToBlack);
+
+        // box.addEventListener("mouseover", function () {
+        //     box.style.color = "orange";
+        // });
+        // box.addEventListener("mouseout", function() {
+        //     box.style.color = "black";
+        // });
+
+
+
+        function changeColor(color) {
+            box.style.color = color;
+        }
+
+        box.addEventListener("mouseover", () => changeColor("orange"));
+        box.addEventListener("mouseout", () => changeColor("black"));
+
+    </script>
+</body>
+</html>

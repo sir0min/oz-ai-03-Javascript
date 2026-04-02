@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="name-input" placeholder="비밀번호 입력...">
+    <p id="preview"></p>
+
+    <script>
+        const input = document.querySelector("#name-input")
+        const preview = document.querySelector("#preview")
+
+        function previewInput() {
+            if (input.value,length <= 3) {
+                preview.textContent = "비밀번호가 너무 짧습니다.";
+                preview.style.color = "red";
+            } else {
+                // preview.textContent = input.value;
+                preview.textContent = "사용 가능한 비밀번호입니다.";
+                preview.style.color = "green";
+            };
+        };
+
+        input.addEventListener("input", previewInput);
+    </script>
+</body>
+</html>
