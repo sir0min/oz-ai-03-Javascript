@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Timer API</h1>
+    <button id="start">카운트다운 시작</button>
+    <p id="time"></p>
+
+    <script>
+/* setTimeout(함수,시간ms):정해진 시간이 지난 뒤 함수가 한번 실행
+        function alertTimeout(){
+            alert("타임아웃 종료되었습니다.")
+        }
+        setTimeout(alertTimeout, 3000) //3s = 3000ms
+
+        setTimeout(function() {
+            alert("타임아웃이 종료되었습니다.");
+        }, 3000);
+
+        setTimeout(() => alert("타임아웃이 종료되었습니다."), 3000);
+*/
+
+
+/* setInterval(함수, 시간ms) : 정해진 시간마다 함수를 반복실행 
+        setInterval(() => alert("3초가 경과되었습니다."), 3000);
+*/
+
+        const startBtn = document.querySelector("#start"); 
+        const timeEl = document.querySelector("#time"); 
+
+        let timeLeft = 10;
+        let timerId = null; 
+
+        startBtn.addEventListener("click",() => { 
+            if (timerId !== null) return; 
+            startBtn.disabled = true;
+            timeEl.textContent = timeLeft;
+
+            timerId = setInterval(()=> { 
+                timeLeft--;
+                if (timeLeft === 0 ) {
+                    timeEl.textContent = "타이머 종료";
+                    clearInterval(timerId);
+                    timeLeft = 10;
+                    timerId = null;
+                    startBtn.disabled = false;
+                } else {
+                    timeEl.textContent = timeLeft;
+                };
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
